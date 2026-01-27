@@ -1,1 +1,2 @@
-export * from './Theme.ts';
+export * from './Theme';
+export * from './Locals';

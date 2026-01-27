@@ -19,6 +19,8 @@ const reactRoot = createRoot(domContainer);
 
 
 /** Запускает процесс рендеринга компонента App внутрь DOM-контейнера. **/
+
+
 reactRoot.render(
   <StrictMode>
     <App/>
