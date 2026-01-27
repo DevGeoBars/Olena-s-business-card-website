@@ -7,4 +7,8 @@ export const useStores = () => {
   if (!context) {
     throw new Error('Для использования useStore необходимо обернуть компонент в StoresProvider');
   }
-}
+  return context;
+};
+
+export const useUserStore = () => useStores().userStore;
+export const useFavoritesStore = () => useStores().favoritesStore;

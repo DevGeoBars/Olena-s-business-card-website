@@ -3,11 +3,11 @@ import {FavoritesStore} from "./favorites";
 
 export class RootStore {
   userStore: UserStore;
-  favoriteStore: FavoritesStore;
+  favoritesStore: FavoritesStore;
 
   constructor() {
     this.userStore = new UserStore();
-    this.favoriteStore = new FavoritesStore();
+    this.favoritesStore = new FavoritesStore();
   }
 }
 
