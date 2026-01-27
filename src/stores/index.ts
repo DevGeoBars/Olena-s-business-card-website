@@ -1,7 +1,7 @@
 import {UserStore} from "./user";
 import {FavoritesStore} from "./favorites";
 
-class RootStore {
+export class RootStore {
   userStore: UserStore;
   favoriteStore: FavoritesStore;
 
