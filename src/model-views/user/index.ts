@@ -3,7 +3,7 @@ import type {Locals, Theme} from "@/types";
 import type {Favorite} from "../favorite";
 
 export interface User {
-  id: number;
+  id: string;
   currentTheme: Theme;
   language: Locals;
 }

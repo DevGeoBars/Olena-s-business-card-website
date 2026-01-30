@@ -1,13 +1,12 @@
 import type {FC, PropsWithChildren} from "react";
 
-import { StorageProvider, StoresProvider } from "@/providers";
-import { rootStore } from "@/stores";
+import {StorageProvider, StoresProvider} from "@/providers";
 
 
 export const ProvidersContainer: FC<PropsWithChildren> = ({children}) => {
   return (
     <StorageProvider>
-      <StoresProvider store={rootStore}>
+      <StoresProvider>
         {children}
       </StoresProvider>
     </StorageProvider>

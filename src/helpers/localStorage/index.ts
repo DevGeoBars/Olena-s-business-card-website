@@ -70,3 +70,4 @@ export function createStorage<T extends object>(initialData?: Partial<T>) {
     }
   };
 }
+export type StorageType<T extends object> = ReturnType<typeof createStorage<T>>;

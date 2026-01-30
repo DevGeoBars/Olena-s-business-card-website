@@ -1,16 +1,17 @@
 import type {FC, ReactNode} from "react";
 
-import type {RootStore} from "@/stores";
-import {StoresContext} from "./StoresContext.ts";
+import {RootStore} from "@/stores";
+import {useStorage} from "@/providers";
 
-export const StoresProvider: FC<{
-  store: RootStore;
-  children: ReactNode;
-}> = ({
-  store, children
-}) => {
+import {StoresContext} from "./StoresContext";
+
+
+export const StoresProvider: FC<{ children: ReactNode }> = ({children}) => {
+  const { storage } = useStorage()
+  const rootStore = new RootStore(storage);
+
   return (
-    <StoresContext.Provider value={store}>
+    <StoresContext.Provider value={rootStore}>
       {children}
     </StoresContext.Provider>
   )

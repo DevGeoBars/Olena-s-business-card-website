@@ -1,5 +1,6 @@
+import { ProvidersContainer } from "./context";
+
 import './index.scss';
-import {ProvidersContainer} from "./context";
 
 
 export const App = () => {
@@ -8,8 +9,6 @@ export const App = () => {
       <ProvidersContainer>
         as
       </ProvidersContainer>
-
-
     </>
   )
 }
