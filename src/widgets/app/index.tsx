@@ -1,15 +1,15 @@
-import {StoresProvider} from "@/providers";
-import {rootStore} from "@/stores";
-
-import './App.scss';
+import './index.scss';
+import {ProvidersContainer} from "./context";
 
 
-export const App = ()  => {
+export const App = () => {
   return (
     <>
-      <StoresProvider store={rootStore}>
-        <App />
-      </StoresProvider>
+      <ProvidersContainer>
+        as
+      </ProvidersContainer>
+
+
     </>
   )
 }
