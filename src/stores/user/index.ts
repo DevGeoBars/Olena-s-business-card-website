@@ -1,6 +1,6 @@
 import {makeAutoObservable} from "mobx";
 
-import type {Theme} from "@/types";
+import type {Locals, Theme} from "@/types";
 import type {IUserStorage, User} from "@/model-views";
 import type {StorageType} from "@/helpers";
 import {DEFAULT_USER_DATA} from "@/constants";
@@ -31,6 +31,14 @@ export class UserStore {
   get UserLanguage(): Theme | undefined {
     return this.currentUser?.currentTheme;
   }
+
+  setLanguage(lang: Locals) {
+    if (this.currentUser) {
+      this.currentUser.language = lang;
+      this._storage.set('userData', this.currentUser);
+    }
+  }
+
 
   private _loadUserFromStorage = () => {
     const savedUserData = this._storage.get('userData');
