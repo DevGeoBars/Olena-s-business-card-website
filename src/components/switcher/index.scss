@@ -1,0 +1,9 @@
+.switcher-container {
+  width: max-content;
+  display: flex;
+  gap: 1rem;
+  .switcher-container__item {
+    cursor: pointer;
+  }
+
+}

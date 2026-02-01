@@ -1,5 +1,7 @@
+import type React from 'react';
+
 export interface IBaseItem {
   id: string;
   caption: string;
-  onClick: (event: MouseEvent) => void;
+  onClick: (event: React.MouseEvent<HTMLElement>) => void;
 }
