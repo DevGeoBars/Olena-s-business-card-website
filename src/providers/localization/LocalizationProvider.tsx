@@ -1,21 +1,31 @@
-import {type FC, type ReactNode, useMemo} from "react";
+import {type FC, type ReactNode, useCallback, useEffect, useMemo} from "react";
 
+import {useStores} from "@/providers";
 
-
-import {LocalizationContext, type TLocalizationContext} from "./LocalizationContext.ts";
+import {LocalizationContext, type TLocalizationContext} from "./LocalizationContext";
 import type {Locals} from "@/types";
 
-type LocalizationProviderProps = {
-  currentLanguage: Locals;
-}
 
-export const LocalizationProvider: FC<{ children: ReactNode} & LocalizationProviderProps> = ({children, currentLanguage}) => {
+export const LocalizationProvider: FC<{ children: ReactNode}> = ({children}) => {
+  const { userStore } = useStores();
+
+  const changeLanguage= useCallback((lang: Locals) => {
+    console.log(`${lang} selected`)
+  }, []);
+
+
+  useEffect(() => {
+    console.log(userStore.User);
+    debugger
+  }, [  userStore.User]);
+
 
   const contextValue: TLocalizationContext = useMemo(() => {
     return {
-      currentLanguage
+      language: userStore.User?.language ?? 'ru',
+      changeLanguage: changeLanguage
     }
-  }, [currentLanguage]);
+  }, [userStore.User?.language]);
 
 
 

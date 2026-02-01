@@ -1,20 +1,20 @@
-import {type FC} from 'react';
-
 import type {IBaseItem} from "@/model-views";
 
 import './index.scss';
 
 
-type SwitcherProps = {
-  items: IBaseItem[];
+type SwitcherProps<T> = {
+  items: IBaseItem<T>[];
 };
 
-export const Switcher: FC<SwitcherProps> = ({ items }) => {
+export const Switcher = <T,>({ items }: SwitcherProps<T>) => {
   return (
     <div className={'switcher-container'}>
       {items.map(i => {
-        const { caption, ...baseProps } = i;
-        return <span className={'switcher-container__item'} {...baseProps}>{caption}</span>
+        const { caption, onChange, ...baseProps } = i;
+        return <span className={'switcher-container__item'} {...baseProps} onClick={() => {
+          onChange(i.value);
+        }}>{caption}</span>
       })}
     </div>
   );

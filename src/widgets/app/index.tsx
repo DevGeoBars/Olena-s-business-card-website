@@ -1,17 +1,20 @@
 import { ProvidersContainer } from "./context";
 
-import './index.scss';
-import {Switcher} from "@/components/switcher";
+import {Switcher} from "@/components";
 import {generateUUID} from "@/helpers";
+import type {Locals} from "@/types";
+
+
+import './index.scss';
 
 
 export const App = () => {
   return (
     <>
       <ProvidersContainer>
-        <Switcher items={[
-          {id: generateUUID(), caption: 'Ru', onClick: () => console.log('clicked Ru')},
-          {id: generateUUID(), caption: 'En', onClick: () => console.log('clicked En')}
+        <Switcher<Locals> items={[
+          {id: generateUUID(), caption: 'Ru', value: 'ru', onChange: (value) => console.log(value)},
+          {id: generateUUID(), caption: 'En', value: 'en', onChange: (value) => console.log(value)}
         ]}/>
 
       </ProvidersContainer>
