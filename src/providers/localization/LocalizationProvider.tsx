@@ -1,12 +1,13 @@
 import {type FC, type ReactNode, useCallback, useEffect, useMemo} from "react";
+import {observer} from "mobx-react-lite";
 
 import {useStores} from "@/providers";
-
-import {LocalizationContext, type TLocalizationContext} from "./LocalizationContext";
 import type {Locals} from "@/types";
 
+import {LocalizationContext, type TLocalizationContext} from "./LocalizationContext";
 
-export const LocalizationProvider: FC<{ children: ReactNode}> = ({children}) => {
+
+export const LocalizationProvider: FC<{ children: ReactNode}> = observer(({children}) => {
   const { userStore } = useStores();
 
   const changeLanguage= useCallback((lang: Locals) => {
@@ -15,7 +16,7 @@ export const LocalizationProvider: FC<{ children: ReactNode}> = ({children}) => 
 
 
   useEffect(() => {
-    console.log(userStore.User);
+    console.log(userStore.User?.language);
     debugger
   }, [  userStore.User]);
 
@@ -34,4 +35,4 @@ export const LocalizationProvider: FC<{ children: ReactNode}> = ({children}) => 
       {children}
     </LocalizationContext.Provider>
   )
-}
+})

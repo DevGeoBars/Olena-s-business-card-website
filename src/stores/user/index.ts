@@ -24,16 +24,16 @@ export class UserStore {
     return this.currentUser;
   }
 
-  get UserTheme(): Theme | undefined {
-    return this.currentUser?.currentTheme;
+  get UserTheme(): Theme | null {
+    return this.currentUser?.currentTheme ?? null;
   }
 
-  get UserLanguage(): Theme | undefined {
-    return this.currentUser?.currentTheme;
+  get UserLanguage(): Locals | null {
+    return this.currentUser?.language ?? null;
   }
 
-  setLanguage(lang: Locals) {
-    if (this.currentUser) {
+  setLanguage(lang: Locals | null) {
+    if (this.currentUser && lang) {
       this.currentUser.language = lang;
       this._storage.set('userData', this.currentUser);
     }

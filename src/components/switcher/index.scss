@@ -4,6 +4,10 @@
   gap: 1rem;
   .switcher-container__item {
     cursor: pointer;
+    &.isActive {
+      color: #1976d2; // Светло-синий
+    }
   }
+
 
 }
