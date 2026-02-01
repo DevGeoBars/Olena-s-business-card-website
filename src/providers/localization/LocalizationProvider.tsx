@@ -17,8 +17,7 @@ export const LocalizationProvider: FC<{ children: ReactNode}> = observer(({child
 
   useEffect(() => {
     console.log(userStore.User?.language);
-    debugger
-  }, [  userStore.User]);
+  }, [userStore.User?.language]);
 
 
   const contextValue: TLocalizationContext = useMemo(() => {
