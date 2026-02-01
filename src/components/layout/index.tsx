@@ -1,6 +1,6 @@
-import { type FC } from 'react';
+import {type FC} from 'react';
 
-import {useStores} from "@/providers";
+import {useLocalization, useStores} from "@/providers";
 import {Switcher} from "@/components";
 import {generateUUID} from "@/helpers";
 import type {Locals} from "@/types";
@@ -8,12 +8,14 @@ import type {Locals} from "@/types";
 import './index.scss';
 import {observer} from "mobx-react-lite";
 
+
 type LayoutProps = {
   headerHeight: number;
 }
 
 export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
   const { userStore } = useStores();
+  const { translate } = useLocalization();
   return (
     <div>
       <header style={{height: headerHeight}}>
@@ -31,6 +33,9 @@ export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
       </main>
       <footer>
         футер
+        {translate('menu.about')}
+        {translate('menu.gallery')}
+        {translate('menu.contacts')}
       </footer>
     </div>
   );
