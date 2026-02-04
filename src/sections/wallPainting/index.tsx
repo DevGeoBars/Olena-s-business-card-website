@@ -6,6 +6,6 @@ type WallPaintingsProps = {title: string};
 
 export const WallPaintings: FC<WallPaintingsProps> = ({title}) => {
   return (
-    <div>{title}</div>
+    <div className={'wall-paintings-container'}>{title}</div>
   );
 };

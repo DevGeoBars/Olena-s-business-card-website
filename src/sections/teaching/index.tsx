@@ -6,6 +6,6 @@ type TeachingProps = {title: string};
 
 export const Teaching: FC<TeachingProps> = ({title}) => {
   return (
-    <div>{title}</div>
+    <div className={'teaching-container'}>{title}</div>
   );
 };

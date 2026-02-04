@@ -6,6 +6,6 @@ type MosaicProps = {title: string};
 
 export const Mosaic: FC<MosaicProps> = ({title}) => {
   return (
-    <div>{title}</div>
+    <div className={'mosaic-container'}>{title}</div>
   );
 };

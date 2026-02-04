@@ -6,6 +6,6 @@ type MainProps = {title: string};
 
 export const Main: FC<MainProps> = ({title}) => {
   return (
-    <div>{title}</div>
+    <div className={'main-container'}>{title}</div>
   );
 };

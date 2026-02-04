@@ -6,6 +6,6 @@ type AboutProps = {title: string};
 
 export const About: FC<AboutProps> = ({title}) => {
   return (
-    <div>{title}</div>
+    <div className={'about-container'}>{title}</div>
   );
 };
