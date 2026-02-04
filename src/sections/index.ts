@@ -1,0 +1,6 @@
+export * from './main'
+export * from './about'
+export * from './paintings'
+export * from './wallPainting'
+export * from './mosaic'
+export * from './teaching'
