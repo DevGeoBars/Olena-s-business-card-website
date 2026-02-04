@@ -7,6 +7,7 @@ import type {Locals} from "@/types";
 
 import './index.scss';
 import {observer} from "mobx-react-lite";
+import {About, Main, Mosaic, Paintings, Teaching, WallPaintings} from "@/sections";
 
 
 type LayoutProps = {
@@ -29,7 +30,12 @@ export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
         />
       </header>
       <main style={{height: headerHeight}}>
-        контент {userStore.UserLanguage}
+        <Main title={'main'}/>
+        <About title={'about'}/>
+        <Paintings title={'paintings'}/>
+        <WallPaintings title={'wallPaintings'}/>
+        <Mosaic title={'mosaic'}/>
+        <Teaching title={'teaching'}/>
       </main>
       <footer>
         футер
