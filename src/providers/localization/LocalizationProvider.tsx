@@ -3,8 +3,8 @@ import {observer} from "mobx-react-lite";
 
 import {useStores} from "@/providers";
 
-import {EN_LOCALS} from "./locals/en";
-import {RU_LOCALS} from "./locals/ru";
+import {EN_LOCALS} from "@/localization/locals/en";
+import {RU_LOCALS} from "@/localization/locals/ru";
 
 import {LocalizationContext, type TLocalizationContext} from "./LocalizationContext";
 
