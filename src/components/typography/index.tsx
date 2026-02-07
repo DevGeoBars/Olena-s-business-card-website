@@ -19,7 +19,8 @@ export const Typography: React.FC<TypographyProps> = ({
                                                         weight = 'regular',
                                                         italic = false,
                                                         className = '',
-                                                        tag: Tag = 'p'
+                                                        tag: Tag = 'p',
+                                                        ...props
                                                       }) => {
   const getFontClass = () => {
     const fontClass = `${family}-${weight}`;
@@ -31,7 +32,7 @@ export const Typography: React.FC<TypographyProps> = ({
 
   return (
     // Используем Tag напрямую
-    <Tag className={cls}>
+    <Tag className={cls} {...props}>
       {children}
     </Tag>
   );
