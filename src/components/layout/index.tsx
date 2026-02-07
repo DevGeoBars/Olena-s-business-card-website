@@ -1,26 +1,47 @@
 import {type FC} from 'react';
 
-import {useLocalization, useStores} from "@/providers";
-import {Switcher} from "@/components";
-import {generateUUID} from "@/helpers";
-import type {Locals} from "@/types";
-
 import './index.scss';
 import {observer} from "mobx-react-lite";
 import {About, Main, Mosaic, Paintings, Teaching, WallPaintings} from "@/sections";
+import {Header} from "@/components/header";
+import type {IBase} from "@/model-views";
+import {generateUUID} from "@/helpers";
+import {useLocalization, useStores} from "@/providers";
+import {Switcher} from "@/components";
+import type {Locals} from "@/types";
 
 
 type LayoutProps = {
   headerHeight: number;
-}
+};
+
+
+
 
 export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
-  const { userStore } = useStores();
   const { translate } = useLocalization();
+  const { userStore } = useStores();
+
+
+
+  const smallMenuItems: IBase[] = [
+    {
+      id: generateUUID(),
+      caption: translate('menu.about') as string
+    },
+    {
+      id: generateUUID(),
+      caption: translate('menu.gallery') as string
+    },
+    {
+      id: generateUUID(),
+      caption: translate('menu.contacts') as string
+    }
+  ]
+
   return (
     <div>
-      <header style={{height: headerHeight}}>
-        башка
+      <Header headerHeight={headerHeight} items={smallMenuItems}>
         <Switcher<Locals | null>
           items={[
             {id: generateUUID(), caption: 'Ru', value: 'ru', onChange: (value) => userStore.setLanguage(value)},
@@ -28,8 +49,8 @@ export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
           ]}
           value={userStore.UserLanguage}
         />
-      </header>
-      <main style={{height: headerHeight}}>
+      </Header>
+      <main>
         <Main title={'main'}/>
         <About title={'about'}/>
         <Paintings title={'paintings'}/>
@@ -39,9 +60,6 @@ export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
       </main>
       <footer>
         футер
-        {translate('menu.about')}
-        {translate('menu.gallery')}
-        {translate('menu.contacts')}
       </footer>
     </div>
   );

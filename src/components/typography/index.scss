@@ -1,0 +1,27 @@
+/* Typography.scss */
+.typography {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Автогенерация классов (опционально) */
+$fonts: (
+        'pt': ('light', 'regular', 'bold'),
+        'open': ('light', 'regular', 'bold')
+);
+
+@each $family, $weights in $fonts {
+  @each $weight in $weights {
+    .#{$family}-#{$weight} {
+      font-family: if($family == 'pt', 'PT Sans', 'Open Sans'), sans-serif;
+      font-weight: if($weight == 'light', 300, if($weight == 'regular', 400, 700));
+    }
+
+    .#{$family}-#{$weight}-italic {
+      font-family: if($family == 'pt', 'PT Sans', 'Open Sans'), sans-serif;
+      font-weight: if($weight == 'light', 300, if($weight == 'regular', 400, 700));
+      font-style: italic;
+    }
+  }
+}

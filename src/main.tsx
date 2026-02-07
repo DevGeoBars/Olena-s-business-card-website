@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 
 import { App } from "@/widgets";
 
-import './styles/global.css';
+import './styles/global.scss';
 import './styles/variables.css';
 
 const domContainer = document.getElementById('root')!;

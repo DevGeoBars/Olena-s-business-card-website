@@ -1,0 +1,44 @@
+.app-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  position: fixed;
+
+  .app-header__nav {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    position: fixed;
+    top: calc(545px + 50px + 10px);
+  }
+
+  .app-header__tools {
+    position: fixed;
+    right: 10px;
+    z-index: 99;
+  }
+}
+
+
+.app-header__nav.sticky {
+  position: fixed;
+  top: 10px;
+  width: 100%;
+  z-index: 99;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
