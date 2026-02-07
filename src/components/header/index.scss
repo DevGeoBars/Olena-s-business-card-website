@@ -31,10 +31,17 @@
 
   &.fixed {
     animation: slideDown 0.3s ease-out;
+    .nav__item {
+      font-size: initial;
+    }
   }
 
   &:not(.fixed) {
     animation: slideUp 0.3s ease-out;
+  }
+
+  .nav__item {
+    font-size: 20px;
   }
 }
 

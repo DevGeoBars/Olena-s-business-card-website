@@ -5,6 +5,7 @@ import type {IBase} from "@/model-views";
 
 
 import './index.scss';
+import {Typography} from "@/components";
 
 
 type HeaderProps = PropsWithChildren<{
@@ -50,7 +51,7 @@ export const Header: FC<HeaderProps> = ({
       <div className={cls2} style={{
         top: isFixed ? 10 : window.innerHeight - 50
       }}>
-        {items?.map(i => <span>{i.caption}</span>)}
+        {items?.map(i => <Typography className={'nav__item'}>{i.caption}</Typography>)}
       </div>
       <div className={'app-header__tools'}>
         {children}

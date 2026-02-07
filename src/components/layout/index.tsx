@@ -51,7 +51,7 @@ export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
         />
       </Header>
       <main>
-        <Main title={'main'}/>
+        <Main/>
         <About title={'about'}/>
         <Paintings title={'paintings'}/>
         <WallPaintings title={'wallPaintings'}/>

@@ -2,6 +2,7 @@ import type {IBaseItem} from "@/model-views";
 import {classNames} from "@/helpers";
 
 import './index.scss';
+import {Typography} from "@/components";
 
 type SwitcherProps<T = undefined> = {
   items: IBaseItem<T>[];
@@ -16,7 +17,7 @@ export const Switcher = <T,>({ items, value }: SwitcherProps<T>) => {
         const { caption, onChange, ...baseProps } = i;
         const isActive = i.value === value;
 
-        return <span
+        return <Typography
           className={classNames('switcher-container__item', {isActive})}
           onClick={() => {
             onChange(i.value);
@@ -24,7 +25,7 @@ export const Switcher = <T,>({ items, value }: SwitcherProps<T>) => {
           {...baseProps}
         >
           {caption}
-        </span>
+        </Typography>
       })}
     </div>
   );
