@@ -1,10 +1,7 @@
 .app-header {
-  background-color: #282c34;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-
   position: fixed;
 
   .app-header__nav {
@@ -13,26 +10,46 @@
     gap: 20px;
     justify-content: space-around;
     position: fixed;
-    top: calc(545px + 50px + 10px);
   }
 
   .app-header__tools {
     position: fixed;
+    top: 10px;
     right: 10px;
     z-index: 99;
   }
 }
 
-
-.app-header__nav.sticky {
+.app-header.fixed {
   position: fixed;
-  top: 10px;
   width: 100%;
-  z-index: 99;
-  animation: slideDown 0.3s ease-out;
+  background-color: rgba(247, 244, 244, 0.6);
+}
+
+.app-header__nav {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+
+  &.fixed {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  &:not(.fixed) {
+    animation: slideUp 0.3s ease-out;
+  }
 }
 
 @keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
   from {
     transform: translateY(-100%);
     opacity: 0;

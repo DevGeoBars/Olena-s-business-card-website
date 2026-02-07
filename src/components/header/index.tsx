@@ -1,4 +1,4 @@
-import {type FC, type PropsWithChildren, useEffect, useRef, useState} from 'react';
+import {type FC, type PropsWithChildren, useEffect, useState} from 'react';
 
 import {classNames} from "@/helpers";
 import type {IBase} from "@/model-views";
@@ -10,44 +10,46 @@ import './index.scss';
 type HeaderProps = PropsWithChildren<{
   items?: IBase[];
   headerHeight?: number;
-
-  fixed?: boolean
 }>;
 
 export const Header: FC<HeaderProps> = ({
-                                          headerHeight = 50, items, fixed, children
-                                        }) => {
-  const [isSticky, setIsSticky] = useState(false);
-  const headerRef = useRef<HTMLDivElement>(null);
+  items, children,
+
+   headerHeight = 50,
+}) => {
+  const [isFixed, setIsFixed] = useState(false);
+
 
   useEffect(() => {
-    if (fixed) return;
-
     const handleScroll = () => {
-      if (!headerRef.current) return;
       const scrollTop = document.documentElement.scrollTop;
-      setIsSticky(scrollTop > 0);
+      setIsFixed(scrollTop >  headerHeight * 2);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [fixed]);
+  }, []);
 
 
   const cls = classNames('app-header', {
     centered: children === undefined,
-    sticky: isSticky
+    fixed: isFixed
   });
 
   const cls2 = classNames('app-header__nav', {
-    sticky: isSticky
+    fixed: isFixed
   });
 
+  useEffect(() => {
+    const windowHeight = window.innerHeight;
+    console.log('Высота окна:', windowHeight);
+  }, []);
 
 
   return (
     <header style={{height: headerHeight}} className={cls}>
-      <div ref={headerRef} className={cls2}>
+      <div className={cls2} style={{
+        top: isFixed ? 10 : window.innerHeight - 50
+      }}>
         {items?.map(i => <span>{i.caption}</span>)}
       </div>
       <div className={'app-header__tools'}>
