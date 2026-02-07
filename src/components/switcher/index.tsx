@@ -21,7 +21,6 @@ export const Switcher = <T,>({ items, value }: SwitcherProps<T>) => {
           className={classNames('switcher-container__item', {isActive})}
           onClick={() => {
             onChange(i.value);
-            debugger
           }}
           {...baseProps}
         >
