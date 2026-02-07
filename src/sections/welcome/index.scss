@@ -1,4 +1,4 @@
-.main-container {
+.welcome-container {
   height: 100vh;
 
   display: flex;
@@ -6,7 +6,8 @@
   gap: 15%;
   align-items: center;
   justify-content: center;
-  .main-container__text {
+  .welcome__text {
+
     vertical-align: middle;
 
     font-size: 145px;

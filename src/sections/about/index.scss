@@ -1,4 +1,8 @@
 .about-container {
-  height: 545px;
+  height: 1200px;
   background-color: #1976d2;
+
+  background-image: url("@/assets/img/face_full.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }

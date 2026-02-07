@@ -2,7 +2,7 @@ import {type FC} from 'react';
 
 import './index.scss';
 import {observer} from "mobx-react-lite";
-import {About, Main, Mosaic, Paintings, Teaching, WallPaintings} from "@/sections";
+import {About, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "@/sections";
 import {Header} from "@/components/header";
 import type {IBase} from "@/model-views";
 import {generateUUID} from "@/helpers";
@@ -51,7 +51,7 @@ export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
         />
       </Header>
       <main>
-        <Main/>
+        <Welcome />
         <About title={'about'}/>
         <Paintings title={'paintings'}/>
         <WallPaintings title={'wallPaintings'}/>

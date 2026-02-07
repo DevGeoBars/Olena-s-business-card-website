@@ -1,11 +1,11 @@
-export * from './main'
+export * from './welcome'
 export * from './about'
 export * from './paintings'
 export * from './wallPainting'
 export * from './mosaic'
 export * from './teaching'
 
-// 545 - main (главная)
+// 545 - welcome (главная)
 // small menu (малое меню)
 // 545 - about me (обо мне)
 // home icon / gallery menu (иконка домой / меню галерия)
