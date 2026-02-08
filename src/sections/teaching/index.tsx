@@ -5,13 +5,15 @@ import {classNames} from "@/helpers";
 
 type TeachingProps = {
   className?: string;
+  id: string;
+  caption: string
 }
 
-export const Teaching: FC<TeachingProps> = ({ className }) => {
+export const Teaching: FC<TeachingProps> = ({ id, className }) => {
 
   const cls = classNames('teaching-container', {}, [className]);
 
   return (
-    <div className={cls}>Teaching</div>
+    <div id={id} className={cls}>Teaching</div>
   );
 };

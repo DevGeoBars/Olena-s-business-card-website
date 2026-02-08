@@ -9,15 +9,17 @@ import {classNames} from "@/helpers";
 
 type AboutProps = {
   className?: string;
+  id: string;
+  caption: string
 };
 
-export const About: FC<AboutProps> = ({ className }) => {
+export const About: FC<AboutProps> = ({ id, className }) => {
   const {translate} = useLocalization();
 
   const cls = classNames('about-container', {}, [className]);
 
   return (
-    <div id="about" className={cls}>
+    <div id={id} className={cls}>
       <div className={'about__cover'}/>
 
       <div className={'about__content'}>

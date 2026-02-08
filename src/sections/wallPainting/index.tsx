@@ -5,13 +5,15 @@ import {classNames} from "@/helpers";
 
 type WallPaintingsProps = {
   className?: string;
+  id: string;
+  caption: string
 }
 
-export const WallPaintings: FC<WallPaintingsProps> = ({ className }) => {
+export const WallPaintings: FC<WallPaintingsProps> = ({ id, className }) => {
 
   const cls = classNames('wall-paintings-container', {}, [className]);
 
   return (
-    <div className={cls}>WallPaintings</div>
+    <div id={id} className={cls}>WallPaintings</div>
   );
 };

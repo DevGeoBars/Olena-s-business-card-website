@@ -3,16 +3,18 @@ import {type FC, useEffect, useRef, useState} from 'react';
 
 import {observer} from "mobx-react-lite";
 
-import {About, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "@/sections";
+
 import {Header} from "@/components/header";
-import type {ILinkItem} from "@/model-views";
+
 import {generateUUID} from "@/helpers";
-import {useLocalization, useStores} from "@/providers";
+import {useStores} from "@/providers";
 import {Switcher} from "@/components";
 import type {Locals} from "@/types";
 
 import './index.scss';
 import styles from '@/styles/variables.module.scss';
+import {useSections} from "@/components/layout/hooks";
+
 
 type LayoutProps = {};
 
@@ -22,7 +24,7 @@ type LayoutProps = {};
 export const Layout: FC<LayoutProps> = observer(() => {
   const headerHeight = parseFloat(styles.headerHeight);
 
-  const { translate } = useLocalization();
+
   const { userStore } = useStores();
 
   const [isGallarySectionActive, setIsGallarySectionActive] = useState(false);
@@ -47,59 +49,18 @@ export const Layout: FC<LayoutProps> = observer(() => {
     return () => observer.disconnect();
   }, []);
 
+  const {
+    homeMenuItems,
+    galleryMenuItems,
 
-
-
-  const mainMenuItems: ILinkItem[] = [
-    {
-      id: generateUUID(),
-      caption: translate('menu.about') as string,
-      href: '#about'
-    },
-    {
-      id: generateUUID(),
-      caption: translate('menu.gallery') as string,
-      href: '#paintings'
-    },
-    {
-      id: generateUUID(),
-      caption: translate('menu.contacts') as string,
-      href: '#contacts'
-    }
-  ];
-
-  const gallaryMenuItems: ILinkItem[] = [
-    {
-      id: generateUUID(),
-      caption: translate('menu.about') as string,
-      href: '#about'
-    },
-    {
-      id: generateUUID(),
-      caption: translate('menu.paintings') as string,
-      href: '#paintings'
-    },
-    {
-      id: generateUUID(),
-      caption: translate('menu.wallPaintings') as string,
-      href: '#wall_paintings'
-    },
-    {
-      id: generateUUID(),
-      caption: translate('menu.mosaic') as string,
-      href: '#mosaic'
-    },
-    {
-      id: generateUUID(),
-      caption: translate('menu.teaching') as string,
-      href: '#teaching'
-    }
-  ];
-
+    homeSections,
+    gallerySections,
+    contactSection
+  } = useSections();
 
   return (
     <div className={'layout-container'}>
-      <Header headerHeight={headerHeight} items={isGallarySectionActive ? gallaryMenuItems : mainMenuItems}>
+      <Header headerHeight={headerHeight} items={isGallarySectionActive ? galleryMenuItems : homeMenuItems}>
         <Switcher<Locals | null>
           items={[
             {id: generateUUID(), caption: 'Ru', value: 'ru', onChange: (value) => userStore.setLanguage(value)},
@@ -109,17 +70,13 @@ export const Layout: FC<LayoutProps> = observer(() => {
         />
       </Header>
       <main>
-        <Welcome className={'section'}/>
-        <About className={'section'}/>
+        {homeSections}
         <div className={'section gallery'}  ref={galleryRef}>
-          <Paintings className={'section'}/>
-          <WallPaintings className={'section'}/>
-          <Mosaic className={'section'}/>
-          <Teaching className={'section'}/>
+          {gallerySections}
         </div>
       </main>
       <footer>
-        футер
+        {contactSection}
       </footer>
     </div>
   );

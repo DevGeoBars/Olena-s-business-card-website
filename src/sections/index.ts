@@ -4,6 +4,7 @@ export * from './paintings'
 export * from './wallPainting'
 export * from './mosaic'
 export * from './teaching'
+export * from './contacts'
 
 // 545 - welcome (главная)
 // small menu (малое меню)
@@ -13,3 +14,4 @@ export * from './teaching'
 // 1090 - wall painting (роспись стен)
 // 1835 - ceramics / mosaic (керамика / мозаика)
 // 1090 - teaching (преподавание)
+// 1090 - contacts (контакты)
