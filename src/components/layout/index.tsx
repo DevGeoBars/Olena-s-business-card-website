@@ -55,12 +55,12 @@ export const Layout: FC<LayoutProps> = observer(() => {
         />
       </Header>
       <main>
-        <Welcome />
-        <About />
-        <Paintings title={'gallery'}/>
-        <WallPaintings title={'wallPaintings'}/>
-        <Mosaic title={'mosaic'}/>
-        <Teaching title={'teaching'}/>
+        <Welcome className={'section'}/>
+        <About className={'section'}/>
+        <Paintings className={'section'}/>
+        <WallPaintings className={'section'}/>
+        <Mosaic className={'section'}/>
+        <Teaching className={'section'}/>
       </main>
       <footer>
         футер
