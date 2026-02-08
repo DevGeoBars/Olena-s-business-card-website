@@ -4,43 +4,47 @@ import './index.scss';
 import {observer} from "mobx-react-lite";
 import {About, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "@/sections";
 import {Header} from "@/components/header";
-import type {IBase} from "@/model-views";
+import type {ILinkItem} from "@/model-views";
 import {generateUUID} from "@/helpers";
 import {useLocalization, useStores} from "@/providers";
 import {Switcher} from "@/components";
 import type {Locals} from "@/types";
+import styles from '@/styles/variables.module.scss';
 
-
-type LayoutProps = {
-  headerHeight: number;
-};
+type LayoutProps = {};
 
 
 
 
-export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
+export const Layout: FC<LayoutProps> = observer(() => {
   const { translate } = useLocalization();
   const { userStore } = useStores();
 
+  const headerHeight = parseFloat(styles.headerHeight);
 
 
-  const smallMenuItems: IBase[] = [
+
+
+  const smallMenuItems: ILinkItem[] = [
     {
       id: generateUUID(),
-      caption: translate('menu.about') as string
+      caption: translate('menu.about') as string,
+      href: '#about'
     },
     {
       id: generateUUID(),
-      caption: translate('menu.gallery') as string
+      caption: translate('menu.gallery') as string,
+      href: '#paintings'
     },
     {
       id: generateUUID(),
-      caption: translate('menu.contacts') as string
+      caption: translate('menu.contacts') as string,
+      href: '#contacts'
     }
   ]
 
   return (
-    <div>
+    <div className={'layout-container'}>
       <Header headerHeight={headerHeight} items={smallMenuItems}>
         <Switcher<Locals | null>
           items={[
@@ -52,8 +56,8 @@ export const Layout: FC<LayoutProps> = observer(({headerHeight}) => {
       </Header>
       <main>
         <Welcome />
-        <About title={'about'}/>
-        <Paintings title={'paintings'}/>
+        <About />
+        <Paintings title={'gallery'}/>
         <WallPaintings title={'wallPaintings'}/>
         <Mosaic title={'mosaic'}/>
         <Teaching title={'teaching'}/>

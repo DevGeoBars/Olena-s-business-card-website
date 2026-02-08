@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client'
 import { App } from "@/widgets";
 
 import './styles/global.scss';
-import './styles/variables.css';
+import './styles/variables.module.scss';
 
 const domContainer = document.getElementById('root')!;
 

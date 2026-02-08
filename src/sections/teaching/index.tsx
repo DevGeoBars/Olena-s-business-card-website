@@ -1,11 +1,17 @@
 import {type FC} from 'react';
 
 import './index.scss';
+import {classNames} from "@/helpers";
 
-type TeachingProps = {title: string};
+type TeachingProps = {
+  className?: string;
+}
 
-export const Teaching: FC<TeachingProps> = ({title}) => {
+export const Teaching: FC<TeachingProps> = ({ className }) => {
+
+  const cls = classNames('teaching-container', {}, [className]);
+
   return (
-    <div className={'teaching-container'}>{title}</div>
+    <div className={cls}>Teaching</div>
   );
 };

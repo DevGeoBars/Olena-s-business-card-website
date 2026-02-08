@@ -5,7 +5,9 @@ import {Typography} from "@/components";
 import './index.scss';
 
 
-type WelcomeProps = {};
+type WelcomeProps = {
+  className?: string;
+};
 
 export const Welcome: FC<WelcomeProps> = () => {
   return (

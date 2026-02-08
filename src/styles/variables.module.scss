@@ -1,0 +1,9 @@
+$headerHeight: 80px;
+
+:root {
+  --header-height: #{$headerHeight};
+}
+
+:export {
+  headerHeight: $headerHeight;
+}
