@@ -3,6 +3,12 @@ export const EN_LOCALS = {
   "menu.gallery": "Gallery",
   "menu.contacts": "Contacts",
 
+  "menu.paintings": "Paintings",
+  "menu.wallPaintings": "Wall paintings",
+  "menu.mosaic": "Mosaic Art",
+  "menu.teaching": "Teaching",
+
+
   "sections.about.title": "About me",
   "sections.about.text": `Hello everyone! I'm Olena — an artist, multi-creator.
                   I paint canvases, do wall painting, mosaic, make videos, teach... and much more.

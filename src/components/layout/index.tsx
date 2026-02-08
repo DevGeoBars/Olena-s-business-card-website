@@ -1,7 +1,8 @@
-import {type FC} from 'react';
+import {type FC, useState} from 'react';
 
-import './index.scss';
+
 import {observer} from "mobx-react-lite";
+
 import {About, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "@/sections";
 import {Header} from "@/components/header";
 import type {ILinkItem} from "@/model-views";
@@ -9,6 +10,8 @@ import {generateUUID} from "@/helpers";
 import {useLocalization, useStores} from "@/providers";
 import {Switcher} from "@/components";
 import type {Locals} from "@/types";
+
+import './index.scss';
 import styles from '@/styles/variables.module.scss';
 
 type LayoutProps = {};
@@ -21,7 +24,6 @@ export const Layout: FC<LayoutProps> = observer(() => {
   const { userStore } = useStores();
 
   const headerHeight = parseFloat(styles.headerHeight);
-
 
 
 
@@ -41,7 +43,31 @@ export const Layout: FC<LayoutProps> = observer(() => {
       caption: translate('menu.contacts') as string,
       href: '#contacts'
     }
-  ]
+  ];
+
+  const gallaryMenuItems: ILinkItem[] = [
+    {
+      id: generateUUID(),
+      caption: translate('menu.paintings') as string,
+      href: '#paintings'
+    },
+    {
+      id: generateUUID(),
+      caption: translate('menu.wall-paintings') as string,
+      href: '#wall-paintings'
+    },
+    {
+      id: generateUUID(),
+      caption: translate('menu.mosaic') as string,
+      href: '#mosaic'
+    },
+    {
+      id: generateUUID(),
+      caption: translate('menu.teaching') as string,
+      href: '#teaching'
+    }
+  ];
+
 
   return (
     <div className={'layout-container'}>
@@ -57,10 +83,12 @@ export const Layout: FC<LayoutProps> = observer(() => {
       <main>
         <Welcome className={'section'}/>
         <About className={'section'}/>
-        <Paintings className={'section'}/>
-        <WallPaintings className={'section'}/>
-        <Mosaic className={'section'}/>
-        <Teaching className={'section'}/>
+        <div className={'section gallery'}  ref={galleryRef}>
+          <Paintings className={'section'}/>
+          <WallPaintings className={'section'}/>
+          <Mosaic className={'section'}/>
+          <Teaching className={'section'}/>
+        </div>
       </main>
       <footer>
         футер
