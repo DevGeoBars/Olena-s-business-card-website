@@ -1,4 +1,4 @@
-import {type FC, useState} from 'react';
+import {type FC, useEffect, useRef, useState} from 'react';
 
 
 import {observer} from "mobx-react-lite";
@@ -20,14 +20,37 @@ type LayoutProps = {};
 
 
 export const Layout: FC<LayoutProps> = observer(() => {
+  const headerHeight = parseFloat(styles.headerHeight);
+
   const { translate } = useLocalization();
   const { userStore } = useStores();
 
-  const headerHeight = parseFloat(styles.headerHeight);
+  const [isGallarySectionActive, setIsGallarySectionActive] = useState(false);
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+
+  useEffect(() => {
+
+    if (galleryRef.current === null) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        console.log('видно')
+        setIsGallarySectionActive(true)
+      } else {
+        console.log('ушел из видимости')
+        setIsGallarySectionActive(false);
+      }
+    }, {threshold: 0.1});
+    observer.observe(galleryRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
 
 
-  const smallMenuItems: ILinkItem[] = [
+
+  const mainMenuItems: ILinkItem[] = [
     {
       id: generateUUID(),
       caption: translate('menu.about') as string,
@@ -48,13 +71,18 @@ export const Layout: FC<LayoutProps> = observer(() => {
   const gallaryMenuItems: ILinkItem[] = [
     {
       id: generateUUID(),
+      caption: translate('menu.about') as string,
+      href: '#about'
+    },
+    {
+      id: generateUUID(),
       caption: translate('menu.paintings') as string,
       href: '#paintings'
     },
     {
       id: generateUUID(),
-      caption: translate('menu.wall-paintings') as string,
-      href: '#wall-paintings'
+      caption: translate('menu.wallPaintings') as string,
+      href: '#wall_paintings'
     },
     {
       id: generateUUID(),
@@ -71,7 +99,7 @@ export const Layout: FC<LayoutProps> = observer(() => {
 
   return (
     <div className={'layout-container'}>
-      <Header headerHeight={headerHeight} items={smallMenuItems}>
+      <Header headerHeight={headerHeight} items={isGallarySectionActive ? gallaryMenuItems : mainMenuItems}>
         <Switcher<Locals | null>
           items={[
             {id: generateUUID(), caption: 'Ru', value: 'ru', onChange: (value) => userStore.setLanguage(value)},

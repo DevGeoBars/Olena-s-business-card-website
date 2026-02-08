@@ -4,7 +4,7 @@ export const RU_LOCALS = {
   "menu.contacts": "Контакты",
 
   "menu.paintings": "Картины",
-  "menu.wall-paintings": "Роспись стен",
+  "menu.wallPaintings": "Роспись стен",
   "menu.mosaic": "Мозайка",
   "menu.teaching": "Преподование",
 
