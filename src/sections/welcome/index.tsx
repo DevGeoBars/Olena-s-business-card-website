@@ -5,15 +5,11 @@ import {Typography} from "@/components";
 import './index.scss';
 
 
-type WelcomeProps = {
-  className?: string;
-  id: string;
-  caption: string
-};
+type WelcomeProps = {};
 
-export const Welcome: FC<WelcomeProps> = ({id}) => {
+export const Welcome: FC<WelcomeProps> = () => {
   return (
-    <div id={id} className={'welcome-container'}>
+    <div className={'welcome-container'}>
       <Typography tag="span" family="open" className={'welcome__text'} >Olena</Typography>
       <Typography tag="span" family="open" className={'welcome__text'} >Brodina</Typography>
     </div>

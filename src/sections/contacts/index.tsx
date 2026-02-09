@@ -3,25 +3,16 @@ import {type FC} from 'react';
 import {Typography} from "@/components";
 
 import './index.scss';
-import {classNames} from "@/helpers";
 
 
-type ContactsProps = {
 
-  className?: string;
-  id: string;
-  caption: string
-}
+type ContactsProps = {}
 
-export const Contacts: FC<ContactsProps> = ({ id, className, caption }) => {
-
-
-  const cls = classNames('contacts-container', {}, [className]);
-
+export const Contacts: FC<ContactsProps> = ({}) => {
   return (
-    <div id={id} className={cls}>
-      <Typography tag={'span'} className="contacts__title" family={'open'} weight={'light'} italic >
-        {caption}
+    <div className={'contacts-container'}>
+      <Typography tag={'span'} className="contacts__title" family={'open'} weight={'light'} italic>
+        Контакты
       </Typography>
     </div>
   );

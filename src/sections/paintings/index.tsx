@@ -1,19 +1,13 @@
 import {type FC} from 'react';
 
 import './index.scss';
-import {classNames} from "@/helpers";
 
-type PaintingsProps = {
-  className?: string;
-  id: string;
-  caption: string
-}
 
-export const Paintings: FC<PaintingsProps> = ({ id, className }) => {
+type PaintingsProps = {}
 
-  const cls = classNames('paintings-container', {}, [className]);
+export const Paintings: FC<PaintingsProps> = () => {
 
   return (
-    <div id={id} className={cls}>Paintings</div>
+    <div className={'paintings-container'}>Paintings</div>
   );
 };

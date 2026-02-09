@@ -1,19 +1,12 @@
 import {type FC} from 'react';
 
 import './index.scss';
-import {classNames} from "@/helpers";
 
-type TeachingProps = {
-  className?: string;
-  id: string;
-  caption: string
-}
 
-export const Teaching: FC<TeachingProps> = ({ id, className }) => {
+type TeachingProps = {}
 
-  const cls = classNames('teaching-container', {}, [className]);
-
+export const Teaching: FC<TeachingProps> = () => {
   return (
-    <div id={id} className={cls}>Teaching</div>
+    <div className={'teaching-container'}>Teaching</div>
   );
 };

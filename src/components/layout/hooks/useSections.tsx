@@ -1,7 +1,8 @@
-import {About, Contacts, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "@/sections";
+import {About, Contacts, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "@/sections"; //todo не правильный импорт компоненты не могут импортироваться в хуки
 import {useLocalization} from "@/providers";
 import type {ILinkItem, ISectionConfig} from "@/model-views";
 
+import {Section} from "../../section";
 
 export const useSections = () => {
 
@@ -31,20 +32,27 @@ export const useSections = () => {
 
 
   const homeSections = homeSectionsConfig.map(({Component , caption, id}) => {
-    return <Component key={id} id={id} caption={caption}  className="section" />;
+    return <Section  key={id}  id={id} caption={caption} className="section">
+      <Component/>
+    </Section>
   });
 
   const gallerySections = gallerySectionsConfig.map(({Component , caption, id}) => {
-    return <Component key={id} id={id} caption={caption}  className="section" />;
+    return <Section  key={id}  id={id} caption={caption} className="section">
+      <Component/>
+    </Section>
   })
 
   const contactSection = (
-    <CONTACTS_SECTION_CONFIG.Component
+    <Section
       key={CONTACTS_SECTION_CONFIG.id}
       id={CONTACTS_SECTION_CONFIG.id}
       caption={CONTACTS_SECTION_CONFIG.caption}
       className="section"
-    />
+    >
+      <CONTACTS_SECTION_CONFIG.Component />
+    </Section>
+
   );
 
 

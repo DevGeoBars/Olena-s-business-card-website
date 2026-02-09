@@ -4,22 +4,18 @@ import {useLocalization} from "@/providers";
 import {Typography} from "@/components";
 
 import './index.scss';
-import {classNames} from "@/helpers";
 
 
-type AboutProps = {
-  className?: string;
-  id: string;
-  caption: string
-};
 
-export const About: FC<AboutProps> = ({ id, className }) => {
+type AboutProps = {};
+
+export const About: FC<AboutProps> = () => {
   const {translate} = useLocalization();
 
-  const cls = classNames('about-container', {}, [className]);
+
 
   return (
-    <div id={id} className={cls}>
+    <div className={'about-container'}>
       <div className={'about__cover'}/>
 
       <div className={'about__content'}>
