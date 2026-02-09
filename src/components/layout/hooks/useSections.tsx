@@ -12,9 +12,9 @@ export const useSections = () => {
   const ABOUT_SECTION_CONFIG = { id: 'about', caption: translate('menu.about') as string, Component: About };
   const GALLERY_MAIN_SECTION_CONFIG =  { id: 'paintings', caption: translate('menu.gallery') as string, Component: Paintings }; // todo@bars подумать об обертке
   const PAINTINGS_SECTION_CONFIG =  { id: 'paintings', caption: translate('menu.paintings') as string, Component: Paintings };
-  const WALL_PAINTINGS_SECTION_CONFIG =    { id: 'wallPaintings', caption: translate('menu.wallPaintings') as string, Component: WallPaintings };
-  const MOSAIC_PAINTINGS_SECTION_CONFIG =   { id: 'mosaic', caption: translate('menu.mosaic') as string, Component: Mosaic };
-  const TEACHING_PAINTINGS_SECTION_CONFIG =   { id: 'teaching', caption: translate('menu.teaching') as string, Component: Teaching };
+  const WALL_PAINTINGS_SECTION_CONFIG =   { id: 'wallPaintings', caption: translate('menu.wallPaintings') as string, Component: WallPaintings };
+  const MOSAIC_PAINTINGS_SECTION_CONFIG =  { id: 'mosaic', caption: translate('menu.mosaic') as string, Component: Mosaic };
+  const TEACHING_PAINTINGS_SECTION_CONFIG =  { id: 'teaching', caption: translate('menu.teaching') as string, Component: Teaching };
   const CONTACTS_SECTION_CONFIG =  { id: 'contacts', caption: translate('menu.contacts') as string, Component: Contacts };
 
   const homeSectionsConfig: Array<ISectionConfig> = [
@@ -31,14 +31,14 @@ export const useSections = () => {
   ];
 
 
-  const homeSections = homeSectionsConfig.map(({Component , caption, id}) => {
-    return <Section  key={id}  id={id} caption={caption} className="section">
+  const homeSections = homeSectionsConfig.map(({id, Component}) => {
+    return <Section  key={id}  id={id}>
       <Component/>
     </Section>
   });
 
-  const gallerySections = gallerySectionsConfig.map(({Component , caption, id}) => {
-    return <Section  key={id}  id={id} caption={caption} className="section">
+  const gallerySections = gallerySectionsConfig.map(({id, Component}) => {
+    return <Section  key={id}  id={id}>
       <Component/>
     </Section>
   })
@@ -47,8 +47,6 @@ export const useSections = () => {
     <Section
       key={CONTACTS_SECTION_CONFIG.id}
       id={CONTACTS_SECTION_CONFIG.id}
-      caption={CONTACTS_SECTION_CONFIG.caption}
-      className="section"
     >
       <CONTACTS_SECTION_CONFIG.Component />
     </Section>

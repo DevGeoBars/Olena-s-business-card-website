@@ -4,14 +4,12 @@ import {classNames} from "@/helpers";
 type SectionProps = PropsWithChildren<{
   className?: string;
   id: string;
-  caption: string
 }>;
 
-export const Section: FC<SectionProps> = ({id, className, caption, children}) => {
-  const cls = classNames('contacts-container', {}, [className]);
+export const Section: FC<SectionProps> = ({id, className, children}) => {
+  const cls = classNames('section', {}, [className]);
   return (
     <div id={id} className={cls}>
-      {caption}
       {children}
     </div>
   );
