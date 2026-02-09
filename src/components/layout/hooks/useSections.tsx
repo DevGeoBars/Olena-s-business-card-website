@@ -1,8 +1,8 @@
-import {About, Contacts, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "@/sections"; //todo не правильный импорт компоненты не могут импортироваться в хуки
 import {useLocalization} from "@/providers";
 import type {ILinkItem, ISectionConfig} from "@/model-views";
 
 import {Section} from "../../section";
+import {About, Contacts, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "../../sections";
 
 export const useSections = () => {
 
@@ -10,7 +10,7 @@ export const useSections = () => {
 
   const WELCOME_CONFIG =  { id: 'welcome', caption: translate('menu.welcome') as string, Component: Welcome };
   const ABOUT_SECTION_CONFIG = { id: 'about', caption: translate('menu.about') as string, Component: About };
-  const GALLERY_MAIN_SECTION_CONFIG =  { id: 'paintings', caption: translate('menu.gallery') as string, Component: Paintings }; // todo@bars подумать об обертке
+  const GALLERY_MAIN_SECTION_CONFIG =  { id: 'paintings', caption: translate('menu.gallery') as string, Component: Paintings };
   const PAINTINGS_SECTION_CONFIG =  { id: 'paintings', caption: translate('menu.paintings') as string, Component: Paintings };
   const WALL_PAINTINGS_SECTION_CONFIG =   { id: 'wallPaintings', caption: translate('menu.wallPaintings') as string, Component: WallPaintings };
   const MOSAIC_PAINTINGS_SECTION_CONFIG =  { id: 'mosaic', caption: translate('menu.mosaic') as string, Component: Mosaic };
