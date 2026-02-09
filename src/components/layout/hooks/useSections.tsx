@@ -1,8 +1,6 @@
-import {type FunctionComponent } from "react";
-
 import {About, Contacts, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "@/sections";
 import {useLocalization} from "@/providers";
-import type {ILinkItem} from "@/model-views";
+import type {ILinkItem, ISectionConfig} from "@/model-views";
 
 
 export const useSections = () => {
@@ -18,13 +16,13 @@ export const useSections = () => {
   const TEACHING_PAINTINGS_SECTION_CONFIG =   { id: 'teaching', caption: translate('menu.teaching') as string, Component: Teaching };
   const CONTACTS_SECTION_CONFIG =  { id: 'contacts', caption: translate('menu.contacts') as string, Component: Contacts };
 
-  const homeSectionsConfig: Array<ISection> = [
+  const homeSectionsConfig: Array<ISectionConfig> = [
     WELCOME_CONFIG,
     ABOUT_SECTION_CONFIG,
   ];
 
 
-  const gallerySectionsConfig: Array<ISection> = [
+  const gallerySectionsConfig: Array<ISectionConfig> = [
     PAINTINGS_SECTION_CONFIG,
     WALL_PAINTINGS_SECTION_CONFIG,
     MOSAIC_PAINTINGS_SECTION_CONFIG,
@@ -65,14 +63,9 @@ export const useSections = () => {
   }
 }
 
-const createMenuItem = ({id, caption}: ISection): ILinkItem => ({
+const createMenuItem = ({id, caption}: ISectionConfig): ILinkItem => ({
   id,
   caption,
   href: `#${id}`
 });
 
-interface ISection {
-  id: string;
-  caption: string;
-  Component: FunctionComponent<any>; //todo@bars обернуть сперва в компоненту секции что бы тип можно было задать один
-} //todo@bars добавить тип секции
