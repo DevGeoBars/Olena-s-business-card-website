@@ -1,53 +1,30 @@
-import {type FC, useEffect, useRef, useState} from 'react';
-
-
+import { type FC } from 'react';
 import {observer} from "mobx-react-lite";
 
-
-import {Header} from "@/components/header";
 
 import {generateUUID} from "@/helpers";
 import {useStores} from "@/providers";
 import {Switcher} from "@/components";
 import type {Locals} from "@/types";
 
+import {Header} from "../header";
+import {useGalleryInterSection, useSections} from "./hooks";
+
 import './index.scss';
 import styles from '@/styles/variables.module.scss';
-import {useSections} from "@/components/layout/hooks";
 
 
 type LayoutProps = {};
 
-
-
+const headerHeight = parseFloat(styles.headerHeight);
 
 export const Layout: FC<LayoutProps> = observer(() => {
-  const headerHeight = parseFloat(styles.headerHeight);
-
-
   const { userStore } = useStores();
+  const {
+    containerRef,
+    isGalleryInViewPort
+  } = useGalleryInterSection();
 
-  const [isGallarySectionActive, setIsGallarySectionActive] = useState(false);
-  const galleryRef = useRef<HTMLDivElement>(null);
-
-
-  useEffect(() => {
-
-    if (galleryRef.current === null) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        console.log('видно')
-        setIsGallarySectionActive(true)
-      } else {
-        console.log('ушел из видимости')
-        setIsGallarySectionActive(false);
-      }
-    }, {threshold: 0.1});
-    observer.observe(galleryRef.current);
-
-    return () => observer.disconnect();
-  }, []);
 
   const {
     homeMenuItems,
@@ -60,7 +37,7 @@ export const Layout: FC<LayoutProps> = observer(() => {
 
   return (
     <div className={'layout-container'}>
-      <Header headerHeight={headerHeight} items={isGallarySectionActive ? galleryMenuItems : homeMenuItems}>
+      <Header headerHeight={headerHeight} items={isGalleryInViewPort ? galleryMenuItems : homeMenuItems}>
         <Switcher<Locals | null>
           items={[
             {id: generateUUID(), caption: 'Ru', value: 'ru', onChange: (value) => userStore.setLanguage(value)},
@@ -71,7 +48,7 @@ export const Layout: FC<LayoutProps> = observer(() => {
       </Header>
       <main>
         {homeSections}
-        <div className={'section gallery'}  ref={galleryRef}>
+        <div className={'section gallery'} ref={containerRef}>
           {gallerySections}
         </div>
       </main>

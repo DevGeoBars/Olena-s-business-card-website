@@ -5,7 +5,6 @@ import {Section} from "../../section";
 import {About, Contacts, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "../../sections";
 
 export const useSections = () => {
-
   const { translate } = useLocalization();
 
   const WELCOME_CONFIG =  { id: 'welcome', caption: translate('menu.welcome') as string, Component: Welcome };
@@ -22,14 +21,12 @@ export const useSections = () => {
     ABOUT_SECTION_CONFIG,
   ];
 
-
   const gallerySectionsConfig: Array<ISectionConfig> = [
     PAINTINGS_SECTION_CONFIG,
     WALL_PAINTINGS_SECTION_CONFIG,
     MOSAIC_PAINTINGS_SECTION_CONFIG,
     TEACHING_PAINTINGS_SECTION_CONFIG,
   ];
-
 
   const homeSections = homeSectionsConfig.map(({id, Component}) => {
     return <Section  key={id}  id={id}>
@@ -53,11 +50,8 @@ export const useSections = () => {
 
   );
 
-
-
   const galleryMenuItems = [ABOUT_SECTION_CONFIG, ...gallerySectionsConfig, CONTACTS_SECTION_CONFIG].map(createMenuItem);
   const homeMenuItems = [ABOUT_SECTION_CONFIG,  GALLERY_MAIN_SECTION_CONFIG, CONTACTS_SECTION_CONFIG].map(createMenuItem);
-
 
   return {
     galleryMenuItems,
