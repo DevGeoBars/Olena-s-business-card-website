@@ -1,6 +1,8 @@
 import {type FC} from 'react';
 import {classNames} from "@/helpers";
 
+import './index.scss'
+
 type PictureProps = {
   width: number;
   caption: { title: string, position: 'horizontal' | 'vertical' };

@@ -1,6 +1,14 @@
 .picture-container {
-  .picture__img {
+  display: flex;
+  align-items: flex-start;
+  &.horizontal {
+    flex-direction: column;
+  }
 
+
+
+  .picture__img {
+    height: auto;
   }
   .picture__caption {
 

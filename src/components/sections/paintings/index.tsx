@@ -15,7 +15,7 @@ export const Paintings: FC<PaintingsProps> = () => {
   return (
     <div className={'paintings-container'}>
       Paintings
-      <Picture width={800} caption={{title: 'Кофе и сигареты', position: "vertical"}} src={COWS} size={{w: 350, h: 200 }}/>
+      <Picture width={800} caption={{title: 'Кофе и сигареты', position: "horizontal"}} src={COWS} size={{w: 350, h: 200 }}/>
 
     </div>
   );
