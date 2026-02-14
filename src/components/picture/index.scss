@@ -3,6 +3,10 @@
   align-items: flex-start;
   &.horizontal {
     flex-direction: column;
+    .picture__caption {
+      writing-mode: initial;
+    }
+
   }
 
 
@@ -11,6 +15,6 @@
     height: auto;
   }
   .picture__caption {
-
+    writing-mode: vertical-rl;
   }
 }

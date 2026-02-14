@@ -3,6 +3,7 @@ import {type FC} from 'react';
 import {Picture} from "@/components";
 
 import COWS from '@/assets/pictures/Cow.jpg';
+import HAND from '@/assets/pictures/Hands.jpg';
 
 import './index.scss';
 
@@ -16,6 +17,7 @@ export const Paintings: FC<PaintingsProps> = () => {
     <div className={'paintings-container'}>
       Paintings
       <Picture width={800} caption={{title: 'Кофе и сигареты', position: "horizontal"}} src={COWS} size={{w: 350, h: 200 }}/>
+      <Picture width={350} caption={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
 
     </div>
   );
