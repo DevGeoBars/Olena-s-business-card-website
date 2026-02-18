@@ -1,5 +1,8 @@
 .paintings-container {
-  height: 1835px;
+  height: 1835px; /* todo@bars если убираюб фиксированую высоту то все ломается (меню галерее перестает реагировать) */
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 }

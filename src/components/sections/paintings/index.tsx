@@ -20,6 +20,11 @@ export const Paintings: FC<PaintingsProps> = () => {
       <Picture width={350} caption={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
       <Picture width={350} caption={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
 
+      <div>
+        <Picture width={350} caption={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
+        <Picture width={350} caption={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
+      </div>
+
     </div>
   );
 };

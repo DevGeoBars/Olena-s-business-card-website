@@ -4,7 +4,7 @@
 
   &.horizontal {
     flex-direction: column;
-    .picture__caption {
+    .picture__title {
       writing-mode: initial;
     }
   }
@@ -13,7 +13,12 @@
   .picture__img {
     height: auto;
   }
-  .picture__caption {
+
+  .picture__description {
+    display: flex;
+    flex-direction: column;
+  }
+  .picture__title {
     writing-mode: vertical-rl;
   }
 }
