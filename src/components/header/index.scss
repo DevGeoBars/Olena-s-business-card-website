@@ -23,7 +23,7 @@
 .app-header.fixed {
   position: fixed;
   width: 100%;
-  background-color: rgba(247, 244, 244, 0.6);
+  background-color: rgba(247, 244, 244, 0.7);
 }
 
 .app-header__nav {
@@ -42,6 +42,7 @@
 
   .nav__item {
     font-size: 20px;
+    cursor: pointer;
   }
 }
 

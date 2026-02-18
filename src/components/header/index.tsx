@@ -1,7 +1,7 @@
 import {type FC, type PropsWithChildren, useEffect, useState} from 'react';
 
 import {classNames} from "@/helpers";
-import type {ILinkItem} from "@/model-views";
+import type {IBase} from "@/model-views";
 
 
 import './index.scss';
@@ -9,7 +9,7 @@ import {Typography} from "@/components";
 
 
 type HeaderProps = PropsWithChildren<{
-  items?: ILinkItem[];
+  items?: IBase[];
   headerHeight?: number;
 }>;
 
@@ -40,37 +40,30 @@ export const Header: FC<HeaderProps> = ({
     fixed: isFixed
   });
 
-  useEffect(() => {
-    const windowHeight = window.innerHeight;
-    console.log('Высота окна:', windowHeight);
-  }, []);
-
-
   return (
     <header style={{height: headerHeight}} className={cls}>
       <div className={cls2} style={{
         top: isFixed ? 10 : window.innerHeight - 50
       }}>
-        {items?.map(i => <Typography className={'nav__item'}>
-          {i.caption}
-          <a
-            key={i.id}
-            href={i.href} // используем href
-            onClick={(e) => {
-              e.preventDefault();
-              const element = document.getElementById(i.href?.replace('#', '') || '');
-              if (element) {
-                element.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }
-            }}
-          >
-            {i.caption}
-          </a>
+        {items?.map(i => {
+          return <Typography className={'nav__item'} key={i.id}>
+            <span
+              role='link'
+              onClick={() => {
+                const sectionElement = document.getElementById(i.id);
+                if (sectionElement) {
+                  sectionElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  })
+                }
+              }}
+            >
+              {i.caption}
+            </span>
 
-        </Typography>)}
+          </Typography>
+        })}
       </div>
       <div className={'app-header__tools'}>
         {children}

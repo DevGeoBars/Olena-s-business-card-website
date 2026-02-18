@@ -1,5 +1,5 @@
 import {useLocalization} from "@/providers";
-import type {ILinkItem, ISectionConfig} from "@/model-views";
+import type {IBase, ISectionConfig} from "@/model-views";
 
 import {Section} from "../../section";
 import {About, Contacts, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "../../sections";
@@ -63,9 +63,8 @@ export const useSections = () => {
   }
 }
 
-const createMenuItem = ({id, caption}: ISectionConfig): ILinkItem => ({
+const createMenuItem = ({id, caption}: ISectionConfig): IBase => ({
   id,
   caption,
-  href: `#${id}`
 });
 

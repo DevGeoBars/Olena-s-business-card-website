@@ -37,7 +37,10 @@ export const Layout: FC<LayoutProps> = observer(() => {
 
   return (
     <div className={'layout-container'}>
-      <Header headerHeight={headerHeight} items={isGalleryInViewPort ? galleryMenuItems : homeMenuItems}>
+      <Header
+        headerHeight={headerHeight}
+        items={isGalleryInViewPort ? galleryMenuItems : homeMenuItems}
+      >
         <Switcher<Locals | null>
           items={[
             {id: generateUUID(), caption: 'Ru', value: 'ru', onChange: (value) => userStore.setLanguage(value)},
