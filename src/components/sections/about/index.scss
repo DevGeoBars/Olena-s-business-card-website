@@ -10,15 +10,17 @@
     height: 100%;
     background-image: url("@/assets/img/face_full.jpg");
     background-repeat: no-repeat;
-    background-size: cover; /* ← МЕНЯЕМ с contain на cover */
-    background-position: center; /* Центрируем */
+    background-size: cover;
+    background-position: right;
     width: 72%;
     flex-shrink: 0; /* не сжимается */
 
 
   }
   .about__content {
-
+    max-height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     display: flex;
     flex-direction: column;
     flex: 1;

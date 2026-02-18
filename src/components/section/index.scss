@@ -1,3 +1,8 @@
 .section {
   scroll-margin-top: var(--header-height);
+
+  padding: 50px 5%;
+  .section__title {
+    font-size: 46px;
+  }
 }

@@ -22,7 +22,7 @@ const reactRoot = createRoot(domContainer);
 
 
 reactRoot.render(
-  <StrictMode>
+
     <App/>
-  </StrictMode>
+
 )

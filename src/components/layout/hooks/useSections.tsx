@@ -28,14 +28,14 @@ export const useSections = () => {
     TEACHING_PAINTINGS_SECTION_CONFIG,
   ];
 
-  const homeSections = homeSectionsConfig.map(({id, Component}) => {
-    return <Section  key={id}  id={id}>
+  const homeSections = homeSectionsConfig.map(({id, caption, Component}) => {
+    return <Section  key={id}  id={id} title={caption}>
       <Component/>
     </Section>
   });
 
-  const gallerySections = gallerySectionsConfig.map(({id, Component}) => {
-    return <Section  key={id}  id={id}>
+  const gallerySections = gallerySectionsConfig.map(({id, caption, Component}) => {
+    return <Section  key={id}  id={id} title={caption}>
       <Component/>
     </Section>
   })
@@ -44,6 +44,7 @@ export const useSections = () => {
     <Section
       key={CONTACTS_SECTION_CONFIG.id}
       id={CONTACTS_SECTION_CONFIG.id}
+      title={CONTACTS_SECTION_CONFIG.caption}
     >
       <CONTACTS_SECTION_CONFIG.Component />
     </Section>
