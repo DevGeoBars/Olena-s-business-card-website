@@ -1,4 +1,8 @@
 .paintings-container {
   height: 1835px;
-  background-color: aqua;
+  width: 100%;
+  text-align: center;
+  .paintings-container__title {
+    font-size: 46px;
+  }
 }

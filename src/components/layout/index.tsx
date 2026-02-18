@@ -14,11 +14,9 @@ import './index.scss';
 import styles from '@/styles/variables.module.scss';
 
 
-type LayoutProps = {};
-
 const headerHeight = parseFloat(styles.headerHeight);
 
-export const Layout: FC<LayoutProps> = observer(() => {
+export const Layout: FC = observer(() => {
   const { userStore } = useStores();
   const {
     containerRef,

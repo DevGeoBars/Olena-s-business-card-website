@@ -4,7 +4,7 @@ import {classNames} from "@/helpers";
 import './index.scss'
 
 type PictureProps = {
-  width: number;
+  width: number | string;
   caption: { title: string, position: 'horizontal' | 'vertical' };
   src: string;
   size: {w: number, h: number};

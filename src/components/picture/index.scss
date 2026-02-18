@@ -1,14 +1,13 @@
 .picture-container {
   display: flex;
   align-items: flex-start;
+
   &.horizontal {
     flex-direction: column;
     .picture__caption {
       writing-mode: initial;
     }
-
   }
-
 
 
   .picture__img {
