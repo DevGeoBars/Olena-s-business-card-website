@@ -16,13 +16,13 @@ export const Paintings: FC<PaintingsProps> = () => {
   return (
     <div className={'paintings-container'}>
 
-      <Picture width={'100%'} caption={{title: 'Кофе и сигареты', position: "horizontal"}} src={COWS} size={{w: 350, h: 200 }}/>
-      <Picture width={350} caption={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
-      <Picture width={350} caption={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
+      <Picture width={'100%'} info={{title: 'Кофе и сигареты', position: "horizontal"}} src={COWS} size={{w: 350, h: 200 }}/>
+      <Picture width={350} info={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
+      <Picture width={350} info={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
 
       <div>
-        <Picture width={350} caption={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
-        <Picture width={350} caption={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
+        <Picture width={350} info={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
+        <Picture width={350} info={{title: 'Рука', position: "vertical"}} src={HAND} size={{w: 350, h: 200 }}/>
       </div>
 
     </div>

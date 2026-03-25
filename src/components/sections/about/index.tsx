@@ -21,17 +21,18 @@ export const About: FC<AboutProps> = () => {
       <div className={'about__content'}>
         <div className={'about__text'}>
           <Typography tag={'span'} className="about__title" family={'pt'} weight={'bold'}>
-            {translate('sections.about.title')}
+            {translate('menu.about')}
+          </Typography>
+          <Typography tag={'span'} family={'pt'} weight={'regular'}>
+            {translate('sections.about.bio')}
           </Typography>
           <Typography tag={'span'} family={'pt'} weight={'regular'}>
             {translate('sections.about.text')}
           </Typography>
+          <Typography tag={'span'} family={'pt'} weight={'regular'}>
+            {translate('sections.about.cv')}
+          </Typography>
         </div>
-
-
-        <Typography tag={'span'} className="about__title" family={'open'} weight={'light'} italic >
-          Холтс  / маслов  / 20/40
-        </Typography>
       </div>
     </div>
   );

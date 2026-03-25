@@ -1,7 +1,7 @@
 .picture-container {
   display: flex;
   align-items: flex-start;
-
+  position: relative;
   &.horizontal {
     flex-direction: column;
     .picture__title {
