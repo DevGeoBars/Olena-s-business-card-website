@@ -1,22 +1,19 @@
 .as-container {
-  height: 545px;
-
+  height: max-content;
   display: flex;
-  position: relative;
-  z-index: -1;
+
   .as__cover {
-    position: relative;
-    z-index: -1;
-    height: 100%;
+    // Добавляем минимальные размеры, чтобы фон отображался даже без контента
+    min-width: 200px;  // или нужную вам минимальную ширину
+    min-height: 300px; // или нужную вам минимальную высоту
+    height: auto;      // или 100%, в зависимости от нужного поведения
     background-image: url("@/assets/img/face_full.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
-    width: 72%;
-    flex-shrink: 0; /* не сжимается */
-
-
+    flex: 1;
   }
+
   .as__content {
     max-height: 100%;
     overflow: hidden;
@@ -27,6 +24,7 @@
     flex-grow: 1;
     padding: 20px;
     justify-content: space-between;
+
     .as__text {
       display: flex;
       flex-direction: column;

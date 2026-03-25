@@ -17,7 +17,6 @@ export const ArtistStatement: FC<ArtistStatementProps> = () => {
   return (
     <div className={'as-container'}>
       <div className={'as__cover'}/>
-
       <div className={'as__content'}>
         <div className={'as__text'}>
           <Typography tag={'span'} className="as__title" family={'pt'} weight={'bold'}>

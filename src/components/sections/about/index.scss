@@ -3,12 +3,13 @@
 
   display: flex;
   position: relative;
+  flex-direction: row-reverse;
   z-index: -1;
   .about__cover {
     position: relative;
     z-index: -1;
     height: 100%;
-    background-image: url("@/assets/img/face_full.jpg");
+    background-image: url("@/assets/pictures/Olena.JPG");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;

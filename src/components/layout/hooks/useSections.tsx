@@ -2,13 +2,14 @@ import {useLocalization} from "@/providers";
 import type {IBase, ISectionConfig} from "@/model-views";
 
 import {Section} from "../../section";
-import {About, Contacts, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "../../sections";
+import {About, ArtistStatement, Contacts, Mosaic, Paintings, Teaching, WallPaintings, Welcome} from "../../sections";
 
 export const useSections = () => {
   const { translate } = useLocalization();
 
   const WELCOME_CONFIG =  { id: 'welcome', caption: translate('menu.welcome') as string, Component: Welcome };
   const ABOUT_SECTION_CONFIG = { id: 'about', caption: translate('menu.about') as string, Component: About };
+  const AS_SECTION_CONFIG = { id: 'artistStatement', caption: translate('menu.AS') as string, Component: ArtistStatement };
   const GALLERY_MAIN_SECTION_CONFIG =  { id: 'paintings', caption: translate('menu.gallery') as string, Component: Paintings };
   const PAINTINGS_SECTION_CONFIG =  { id: 'paintings', caption: translate('menu.paintings') as string, Component: Paintings };
   const WALL_PAINTINGS_SECTION_CONFIG =   { id: 'wallPaintings', caption: translate('menu.wallPaintings') as string, Component: WallPaintings };
@@ -19,6 +20,7 @@ export const useSections = () => {
   const homeSectionsConfig: Array<ISectionConfig> = [
     WELCOME_CONFIG,
     ABOUT_SECTION_CONFIG,
+    AS_SECTION_CONFIG
   ];
 
   const gallerySectionsConfig: Array<ISectionConfig> = [
@@ -52,7 +54,7 @@ export const useSections = () => {
   );
 
   const galleryMenuItems = [ABOUT_SECTION_CONFIG, ...gallerySectionsConfig, CONTACTS_SECTION_CONFIG].map(createMenuItem);
-  const homeMenuItems = [ABOUT_SECTION_CONFIG,  GALLERY_MAIN_SECTION_CONFIG, CONTACTS_SECTION_CONFIG].map(createMenuItem);
+  const homeMenuItems = [ABOUT_SECTION_CONFIG,  GALLERY_MAIN_SECTION_CONFIG,  AS_SECTION_CONFIG, CONTACTS_SECTION_CONFIG].map(createMenuItem);
 
   return {
     galleryMenuItems,

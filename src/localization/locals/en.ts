@@ -1,6 +1,7 @@
 export const EN_LOCALS = {
   "menu.about": "About me",
   "menu.gallery": "Gallery",
+  "menu.AS": "ARTIST STATEMENT",
   "menu.contacts": "Contacts",
 
   "menu.paintings": "Paintings",

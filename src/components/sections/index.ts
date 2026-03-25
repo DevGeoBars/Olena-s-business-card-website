@@ -1,5 +1,6 @@
 export * from './welcome'
 export * from './about'
+export * from './artistStatement'
 export * from './paintings'
 export * from './wallPainting'
 export * from './mosaic'
