@@ -1,0 +1,36 @@
+.as-container {
+  height: 545px;
+
+  display: flex;
+  position: relative;
+  z-index: -1;
+  .as__cover {
+    position: relative;
+    z-index: -1;
+    height: 100%;
+    background-image: url("@/assets/img/face_full.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    width: 72%;
+    flex-shrink: 0; /* не сжимается */
+
+
+  }
+  .as__content {
+    max-height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-grow: 1;
+    padding: 20px;
+    justify-content: space-between;
+    .as__text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}
