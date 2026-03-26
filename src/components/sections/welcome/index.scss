@@ -1,16 +1,27 @@
+.section#welcome {
+  padding: 0;
+}
 .welcome-container {
   height: 100vh;
-
+  //background-image: url("@/assets/img/face_full.jpg");
+  //background-repeat: no-repeat;
+  //background-size: cover;
+  //background-position: right;
   display: flex;
   flex-direction: column;
   gap: 15%;
   align-items: center;
   justify-content: center;
+
+  //color: white;
   .welcome__text {
 
     vertical-align: middle;
 
     font-size: 145px;
+    //position: absolute;
+    //top: 0;
+    //left: 20px;
 
     line-height: 1.55;
     font-weight: 300;

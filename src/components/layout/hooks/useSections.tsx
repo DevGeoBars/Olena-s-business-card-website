@@ -31,13 +31,13 @@ export const useSections = () => {
   ];
 
   const homeSections = homeSectionsConfig.map(({id, caption, Component}) => {
-    return <Section  key={id}  id={id} title={caption}>
+    return <Section key={id} id={id} title={caption}>
       <Component/>
     </Section>
   });
 
   const gallerySections = gallerySectionsConfig.map(({id, caption, Component}) => {
-    return <Section  key={id}  id={id} title={caption}>
+    return <Section key={id} id={id} title={caption}>
       <Component/>
     </Section>
   })
